@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div id="banner">
+    
+        <h3>NEW & EXLUSIVE</h3>
+
+    
+</div>
+
+@{
+    var featuredCards = Model.Card.Where(c => c.isFeatured).ToList(); 
+    var rand = new Random();
+
+    // Fisher-Yates shuffle https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+    for (int i = featuredCards.Count - 1; i > 0; i--)
+    {
+        int j = rand.Next(0, i + 1);
+        var temp = featuredCards[i];
+        featuredCards[i] = featuredCards[j];
+        featuredCards[j] = temp;
+    }
+}
+
+<div class="pin-container">
+    @foreach (var item in featuredCards.Take(3))
+    {
+        string imagePath = "/images/" + item.ImageName;
+
+        <div class="pin-box">
+            <a href="/Details?id=@item.CardID">
+            <img src="@imagePath" class="mb-2" data-bs-toggle="modal" data-bs-target="#photoModal" data-bs-photo="@item.CardID">
+            </a>
+            <div>@item.CardName | $@item.Price</div>
+        </div>
+        
+    }
+</div>
+
+
+<h1>MORE ARTIFICATS</h1>
+<br />
+<div class="pin-container">
+    @foreach (var item in Model.Card.Where(c => !c.isFeatured))
+    {
+        string imagePath = "/images/" + item.ImageName;
+
+        <div class="pin-box">
+            <a href="/Details?id=@item.CardID">
+                <img src="@imagePath" class="mb-2" data-bs-toggle="modal" data-bs-target="#photoModal" data-bs-photo="@item.CardID">                
+            </a>
+            <div>@item.CardName | $@item.Price</div>
+        </div>
+    }
+</div>
+

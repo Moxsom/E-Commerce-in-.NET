@@ -1,0 +1,72 @@
+﻿@page
+@model DigitalCards.Pages.Cards.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class=" mb-3">
+                <label asp-for="Card.CardName" class="control-label"></label>
+                <input asp-for="Card.CardName" class="form-control" />
+                <span asp-validation-for="Card.CardName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Card.CardType" class="control-label"></label>
+                <input asp-for="Card.CardType" class="form-control" />
+                <span asp-validation-for="Card.CardType" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Card.Description" class="control-label"></label>
+                <input asp-for="Card.Description" class="form-control" />
+                <span asp-validation-for="Card.Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Card.Price" class="control-label"></label>
+                <input asp-for="Card.Price" class="form-control" />
+                <span asp-validation-for="Card.Price" class="text-danger"></span>
+            </div>
+
+            @* <div class="mb-3">
+                <label asp-for="Card.ImageName" class="control-label"></label>
+                <input asp-for="Card.ImageName" class="form-control" />
+                <span asp-validation-for="Card.ImageName" class="text-danger"></span>
+            </div> *@
+
+            <div class="mb-3">
+                <label for="ImageUpload" class="control-label">Card Photo</label>
+                <input type="file" asp-for="ImageUpload" class="form-control" />
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Card.isFeatured" /> @Html.DisplayNameFor(model => model.Card.isFeatured)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

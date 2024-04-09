@@ -1,0 +1,92 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/background.png"); Ended up not liking this too clutered*/
+}
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+/* Home page banner image */
+.banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/banner.jpg");
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Text in the bottom left */
+.banner-text {
+    position: absolute;
+    bottom: 20px; /* Adjust this value to your preference */
+    left: 20px; /* Adjust this value to your preference */
+    color: white; /* Change the color as needed */
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold; /* Adjust the font weight as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Optional: Add a text shadow for better visibility */
+}
+
+.pin-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+    .pin-container .pin-box {
+        width: 30%; /* Adjust this width based on your design */
+        margin-bottom: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+        display: inline-block;
+        position: relative;
+    }
+
+        .pin-container .pin-box img {
+            max-width: 100%;
+            cursor: zoom-in;
+        }
+
+            .pin-container .pin-box img:hover {
+                cursor: zoom-in;
+                filter: brightness(55%);
+            }
+
+
+#details-container .card-body {
+    display: flex;
+    align-items: center; /* Center vertically within the card body */
+}
+
+#details-container img {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+}
+
+#details-container .row {
+    display: flex;
+    flex-direction: column; /* Stack the terms and values vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+    margin-top: 10px; /* Add some space between the image and details */
+}
+
+    #details-container .row dt,
+    #details-container .row dd {
+        margin: 5px 0; /* Adjust the margin between terms and values */
+        text-align: left; /* Reset text alignment for terms and values */
+        width: 100%; /* Make sure each term and value takes the full width */
+    }

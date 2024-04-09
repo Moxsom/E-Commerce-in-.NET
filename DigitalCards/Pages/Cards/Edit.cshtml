@@ -1,0 +1,74 @@
+﻿@page
+@model DigitalCards.Pages.Cards.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+
+    string imagePath = "/images/" + Model.Card.ImageName;
+}
+
+<h1>Edit</h1>
+
+
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@imagePath" class="img-fluid" />
+    </div>
+</div>
+
+<br />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Card.CardID" />
+            <input type="hidden" asp-for="Card.ImageName" />
+            
+            
+            
+            
+
+            <div class="form-group">
+                <label asp-for="Card.CardName" class="control-label"></label>
+                <input asp-for="Card.CardName" class="form-control" />
+                <span asp-validation-for="Card.CardName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.CardType" class="control-label"></label>
+                <input asp-for="Card.CardType" class="form-control" />
+                <span asp-validation-for="Card.CardType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Description" class="control-label"></label>
+                <input asp-for="Card.Description" class="form-control" />
+                <span asp-validation-for="Card.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Price" class="control-label"></label>
+                <input asp-for="Card.Price" class="form-control" />
+                <span asp-validation-for="Card.Price" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Card.isFeatured" /> @Html.DisplayNameFor(model => model.Card.isFeatured)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@* @page
+@model DigitalCards.Pages.Cards.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+
+    // var isFeaturedText; *This didn't work, but Copilot suggested the fix below
+
+    // if (isFeatured == "True")
+    // {
+    //     isFeaturedText == "Yes";
+    // } else
+    // {
+    //     isFeaturedText == "No";
+    var isFeaturedText = Model.Card.isFeatured ? "Yes" : "No"; // ternary operator (shorthand if/else) - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
+}
+
+<div>
+    <a asp-page="/Index" class="btn btn-outline-dark">Add To Cart</a>  |  <a asp-page="/Index" class="btn btn-outline-dark">Continue Shopping</a>
+</div>
+
+
+
+<div id="details-container" class="container mt-5">
+
+    <div class="card">
+        <div class="card-body">
+            <div>
+                
+                <dd class="col-sm-9">
+                    <img src="/images/@Model.Card.ImageName" alt="@Model.Card.CardName" class="img-fluid" />
+                </dd>
+            </div>
+            <dl class="row">
+                <dt class="col-sm-3">Unit Name: </dt>
+                <dd class="col-sm-9">@Model.Card.CardName</dd>
+
+                <dt class="col-sm-3">Artifact Faction: </dt>
+                <dd class="col-sm-9">@Model.Card.CardType</dd>
+
+                <dt class="col-sm-3">Description: </dt>
+                <dd class="col-sm-9">@Model.Card.Description</dd>
+
+                <dt class="col-sm-3">Price: </dt>
+                <dd class="col-sm-9">$@Model.Card.Price</dd>
+
+                <dt class="col-sm-3">Featured</dt>
+                <dd class="col-sm-9">@isFeaturedText</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+
+@* <div>
+    <a asp-page="./Edit" asp-route-id="@Model.Card?.CardID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div> *@
+ 

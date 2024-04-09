@@ -1,0 +1,86 @@
+﻿@page
+@model DigitalCards.Pages.CheckoutModel
+@{
+}
+
+<br />
+<a asp-page="/Index" class="btn btn-outline-dark">Continue Shopping</a>
+
+<br />
+<h1>Checkout Page</h1>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 p-4 border rounded">
+        <form method="post">
+            
+
+            <div class="mb-3 row">
+                <div class="col-md-4">
+                    <label for="Name" class="control-label">Name</label>
+                    <input type="text" id="Name" name="Name" class="form-control" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="Address" class="control-label">Address</label>
+                    <input type="text" id="Address" name="Address" class="form-control" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="PostalCode" class="control-label">Postal Code</label>
+                    <input type="text" id="PostalCode" name="PostalCode" class="form-control" />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-md-5">
+                    <label for="City" class="control-label">City</label>
+                    <input type="text" id="City" name="City" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label for="Province" class="control-label">Province</label>
+                    <input type="text" id="Province" name="Province" class="form-control" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="Country" class="control-label">Country</label>
+                    <input type="text" id="Country" name="Country" class="form-control" />
+                </div>
+            </div>
+
+            <div class="mb-3 border-bottom">
+                <h3>Billing Details</h3>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="ccNumber" class="control-label">Credit Card Number</label>
+                    <input type="text" id="ccNumber" name="ccNumber" class="form-control" />
+                    <span asp-validation-for="ccNumber" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="ccExpiryDate" class="control-label">Expiry(MMYY)</label>
+                    <input type="text" id="ccExpiryDate" name="ccExpiryDate" class="form-control" />
+                    <span asp-validation-for="ccExpiryDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="cvv" class="control-label">3-digit CVV</label>
+                    <input type="text" id="cvv" name="cvv" class="form-control" />
+                    <span asp-validation-for="cvv" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mb-3">
+                <div>
+                    <a asp-page="./ShoppingCart" class="btn btn-outline-dark mr-2">Return to Cart</a>
+                    <input type="submit" value="Place Order" class="btn btn-dark" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
